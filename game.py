@@ -1,6 +1,6 @@
 # Parent class.
 class Character:
-    """Define a character."""
+    """Define player's character."""
     
     species = 'Human' # Class variable
 
@@ -22,7 +22,8 @@ class Character:
 
 # Child class inherits from Character/parent class.
 class NPC(Character):
-    
+    """Define computer character."""
+
     species = 'Computer' # Overrides Character/parent class variable.
 
 
@@ -33,6 +34,7 @@ def choose_name() -> str:
 
 
 def main():
+    """Main function."""
     # Creates an instance of the Character object, and lets the user choose a name.
     player = Character(choose_name())
     
