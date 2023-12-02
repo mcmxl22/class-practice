@@ -1,8 +1,10 @@
+from dataclasses import dataclass
+
+@dataclass
 class Vehicle:
-    def __init__(self, name: str, max_speed: int, number):
-        self.name = name
-        self.max_speed = max_speed
-        self.number = number
+    name: str
+    max_speed: int
+    number: int
 
 class Bus(Vehicle):
     pass
