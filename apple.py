@@ -16,12 +16,12 @@ class Apple(Person):
 
 def main():
     """The main function."""
-    a = Apple('Granny Smith')
-    p = Person("Eve")
-    c = Apple.get_color("")
-    e = Apple.eat('')
-    print(f"{p.name} is {e} a {c} apple!")
-    print(f"Its a {a.name}!")
+    apple = Apple('Granny Smith')
+    person = Person("Eve")
+    color = Apple.get_color("")
+    eat = Apple.eat('')
+    print(f"{person.name} is {eat} a {color} apple!")
+    print(f"Its a {apple.name}!")
 
 
 if __name__ == "__main__":
