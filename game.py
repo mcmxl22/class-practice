@@ -12,7 +12,9 @@ class Character:
     def heal(self):
         """Heal character."""
         if self.health < 1:
-            print("Can not heal!")
+            print("Cannot heal!")
+        elif self.health >= 100:
+            print("You have max health!")
         else:
             self.health += 1
 
