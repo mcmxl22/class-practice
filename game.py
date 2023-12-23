@@ -1,10 +1,8 @@
 # Parent class.
 class Character:
     """Define player's character."""
-    
-    species = 'Human' # Class variable
+    species = 'human' # Class variable
 
-    # Python's version of a constructor function.
     def __init__(self, name, health=100):
         # Class attributes.
         self.name = name
@@ -13,18 +11,23 @@ class Character:
     # Class methods/functions.
     def heal(self):
         """Heal character."""
-        self.health += 1
+        if self.health < 1:
+            print("Can not heal!")
+        else:
+            self.health += 1
 
     def hurt(self):
         """Hurt character."""
-        self.health -= 1
+        if self.health > 0:
+            self.health -= 1
+        else:
+            print("You died!")
 
 
-# Child class inherits from Character/parent class.
+# Child class inherits from the parent class, Character.
 class NPC(Character):
     """Define computer character."""
-
-    species = 'Computer' # Overrides Character/parent class variable.
+    species = 'machine' # Overrides Character/parent class variable.
 
 
 def choose_name() -> str:
@@ -43,6 +46,9 @@ def main():
 
     # Uses a class method to hurt the character.
     player.hurt()
+    print(player.health)
+    player.heal()
+    print(player.health)
 
     print(f"The {player.species}'s name is {player.name}. Health = {player.health}")
     print(f"The {machine.species}'s name is {machine.name}.")
