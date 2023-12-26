@@ -12,17 +12,3 @@ class Apple(Person):
     
     def eat(self):
         return "eating"
-
-
-def main():
-    """The main function."""
-    apple = Apple('Granny Smith')
-    person = Person("Eve")
-    color = Apple.get_color("")
-    eat = Apple.eat('')
-    print(f"{person.name} is {eat} a {color} apple!")
-    print(f"Its a {apple.name}!")
-
-
-if __name__ == "__main__":
-    main()
