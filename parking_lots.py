@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-"""
-parking_lots.py Version 1
-Author: M McConnaughey
-10/21/2023
-Python 3.7
-"""
-
 class Parking_lot:
     """Define a parking lot class"""
     def __init__(self):
