@@ -48,22 +48,3 @@ class Parking_Space:
 
     def park_vehicle(self):
         self.vehicle = vehicle
-
-
-def main():
-    """Main function"""
-    #Set lot status
-    lot = Parking_lot()
-    status = lot.set_status(False)
-    if lot.get_status():
-        print('Lot is open.')
-    else:
-        print('Sorry, the lot is closed.')
-
-    #Set vehicle type
-    vehicle = Vehicle()
-    vehicle_type = vehicle.set_type('truck')
-
-
-if __name__ == "__main__":
-    main()
