@@ -1,60 +1,65 @@
-# Parent class.
 class Character:
     """Define player's character."""
-    species = 'human' # Class variable
+    species = 'human'
 
-    def __init__(self, name, health=100):
-        # Class attributes.
+    def __init__(self, name: str, health=100):
+        """Initialize a Character object"""
         self.name = name
         self.health = health
 
-    # Class methods/functions.
     def heal(self):
         """Heal character."""
         if self.health < 1:
-            print("Cannot heal!")
-        elif self.health >= 100:
-            print("You have max health!")
-        else:
-            self.health += 1
+            raise ValueError("Cannot heal!")
+        if self.health >= 100:
+            raise ValueError("You have max health!")
+        self.health += 1
 
     def hurt(self):
         """Hurt character."""
         if self.health > 0:
             self.health -= 1
         else:
-            print("You died!")
+            raise ValueError("You died!")
 
 
-# Child class inherits from the parent class, Character.
 class NPC(Character):
     """Define computer character."""
-    species = 'machine' # Overrides Character/parent class variable.
+    species = 'machine'
+
+
+class Gun:
+    """Creates a gun class"""
+
+    def __init__(self, ammo_amount=12):
+        """Initializes a Gun object."""
+        self.ammo_amount = ammo_amount
+
+    def load(self):
+        """Loads the gun."""
+        if self.ammo_amount == 12:
+            raise ValueError("Gun is already loaded.")
+        else:
+            self.ammo_amount = 12
+
+    def unload(self):
+        """Unloads the gun."""
+        if self.ammo_amount == 0:
+            raise ValueError("The gun is already unloaded.")
+        self.ammo_amount = 0
+
+    def fire(self):
+        """Fires the gun."""
+        if self.ammo_amount > 0:
+            self.ammo_amount -= 1
+            if self.ammo_amount == 0:
+                print("Gun is empty!")
+        else:
+            raise ValueError("Gun is empty!")
+
 
 
 def choose_name() -> str:
     """Name your character."""
     name = input("Enter a name. ")
     return name
-
-
-def main():
-    """Main function."""
-    # Creates an instance of the Character object, and lets the user choose a name.
-    player = Character(choose_name())
-    
-    # Creates an instance of, and names the NPC object.
-    machine = NPC('mcmxl22') 
-
-    # Uses a class method to hurt the character.
-    player.hurt()
-    print(player.health)
-    player.heal()
-    print(player.health)
-
-    print(f"The {player.species}'s name is {player.name}. Health = {player.health}")
-    print(f"The {machine.species}'s name is {machine.name}.")
-
-
-if __name__ == "__main__":
-    main()
